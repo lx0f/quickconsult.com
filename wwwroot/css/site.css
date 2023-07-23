@@ -1,5 +1,24 @@
+:root {
+  /* colors */
+  --primary: #0369A1;
+  --primary-dark: #075985;
+  --primary-dark2: #0C4A6E;
+  --link: #2563EB;
+  --background: #D6D3D1;
+  --foreground: #F5F5F4;
+  --foreground-dark: #E7E5E4;
+  --border: #9CA3AF;
+  --success: #0D9488;
+  --danger: #9F1239;
+  --black: #0c0a09;
+
+  /* units */
+  --unit: 8px;
+}
+
 html {
-  font-size: 14px;
+  font-size: 20px;
+  font-family: 'Inter';
 }
 
 @media (min-width: 768px) {
