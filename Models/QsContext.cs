@@ -22,6 +22,24 @@ public class QsContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
             entity.HasOne(e => e.NextAppointment)
                 .WithOne()
                 .HasForeignKey<Appointment>(e => e.NextAppointmentId);
+
+            entity.HasOne(e => e.Doctor)
+                .WithOne()
+                .HasForeignKey<Appointment>(e => e.DoctorId);
+
+            entity.HasOne(e => e.Patient)
+                .WithOne()
+                .HasForeignKey<Appointment>(e => e.PatientId);
+        });
+
+        builder.Entity<User>(entity =>
+        {
+            entity.HasMany(e => e.DoctorAppointments)
+                .WithOne(e => e.Doctor)
+                .HasForeignKey(e => e.DoctorId);
+            entity.HasMany(e => e.PatientAppointments)
+                .WithOne(e => e.Patient)
+                .HasForeignKey(e => e.PatientId);
         });
     }
 
