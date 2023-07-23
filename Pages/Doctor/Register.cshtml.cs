@@ -52,7 +52,6 @@ public class RegisterModel : PageModel
             Nric = Nric,
         };
         var result = await _userManager.CreateAsync(user, Password);
-        await _userManager.AddToRoleAsync(user, "Doctor");
 
         if (!result.Succeeded)
         {
@@ -63,6 +62,7 @@ public class RegisterModel : PageModel
             return Page();
         }
 
+        await _userManager.AddToRoleAsync(user, "Doctor");
         await _signInManager.SignInAsync(user, false);
         return Redirect("/index");
     }
