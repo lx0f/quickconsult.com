@@ -24,6 +24,13 @@ builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(10);
 });
+builder.Services.ConfigureApplicationCookie(opts =>
+{
+    opts.Cookie.Name = "com.quickconsult.cookie";
+    opts.LoginPath = "/login";
+    opts.LogoutPath = "/logout";
+    opts.AccessDeniedPath = "/";
+});
 
 var app = builder.Build();
 
