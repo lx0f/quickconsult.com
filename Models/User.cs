@@ -7,4 +7,6 @@ namespace QuickConsult.Models;
 public class User : IdentityUser<Guid>
 {
     public required string Nric { get; set; }
+    public required ICollection<Appointment> DoctorAppointments;
+    public required ICollection<Appointment> PatientAppointments;
 }

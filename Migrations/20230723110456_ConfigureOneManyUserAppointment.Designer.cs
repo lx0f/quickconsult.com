@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuickConsult.Models;
 
@@ -10,9 +11,11 @@ using QuickConsult.Models;
 namespace QuickConsult.Migrations
 {
     [DbContext(typeof(QsContext))]
-    partial class QsContextModelSnapshot : ModelSnapshot
+    [Migration("20230723110456_ConfigureOneManyUserAppointment")]
+    partial class ConfigureOneManyUserAppointment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
