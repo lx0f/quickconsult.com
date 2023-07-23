@@ -14,6 +14,10 @@ public class RegisterModel : PageModel
     [BindProperty, Required]
     public required string Nric { get; set; }
     [BindProperty, Required]
+    public string FirstName { get; set; }
+    [BindProperty, Required]
+    public string LastName { get; set; }
+    [BindProperty, Required]
     [DataType(DataType.Password)]
     public required string Password { get; set; }
 
@@ -50,6 +54,8 @@ public class RegisterModel : PageModel
         {
             UserName = Nric,
             Nric = Nric,
+            FirstName = FirstName,
+            LastName = LastName
         };
         var result = await _userManager.CreateAsync(user, Password);
 
