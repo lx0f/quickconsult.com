@@ -1,5 +1,4 @@
 ﻿@{
-    bool isDoctorPortal = ViewData["IsDoctorPortal"] is null ? false : (bool)ViewData["IsDoctorPortal"];
     bool isDashboard = Context.Request.Path.StartsWithSegments("/dashboard");
     bool isInbox = Context.Request.Path.StartsWithSegments("/inbox");
     bool isAppointments = Context.Request.Path.StartsWithSegments("/appointments");
@@ -22,37 +21,34 @@
 <body class="d-flex">
     <aside class="qc-sidebar">
         <nav>
+            <div class="brand">
+                <img src="~/images/doctor_quickconsult_logo.png" width="auto" height="120px" />
+            </div>
             <ul>
-                <div class="brand">
-                    @if (isDoctorPortal)
-                    {
-                        <img src="~/images/doctor_quickconsult_logo.png" width="auto" height="120px" />
-                    }
-                    else
-                    {
-                        <img src="~/images/quickconsult_logo.png" width="auto" height="120px" />
-                    }
-                </div>
-                <div>
-                    <li @Html.Raw(isDashboard ? "active" : "")>
-                        <a href="/dashboard">
-                            <div class="icon-layout-dashboard"></div>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li @Html.Raw(isInbox ? "active" : "")>
-                        <a href="/inbox">
-                            <div class="icon-inbox"></div>
-                            Inbox
-                        </a>
-                    </li>
-                    <li @Html.Raw(isAppointments ? "active" : "")>
-                        <a href="/appointments">
-                            <div class="icon-calendar-days"></div>
-                            Appointments
-                        </a>
-                    </li>
-                </div>
+                <li @Html.Raw(isDashboard ? "active" : "")>
+                    <a href="/dashboard">
+                        <div class="icon-layout-dashboard"></div>
+                        Dashboard
+                    </a>
+                </li>
+                <li @Html.Raw(isInbox ? "active" : "")>
+                    <a href="/inbox">
+                        <div class="icon-inbox"></div>
+                        Inbox
+                    </a>
+                </li>
+                <li @Html.Raw(isAppointments ? "active" : "")>
+                    <a href="/appointments">
+                        <div class="icon-calendar-days"></div>
+                        Appointments
+                    </a>
+                </li>
+                <li @Html.Raw(isPayments ? "active" : "")>
+                    <a href="/payments">
+                        <div class="icon-banknote"></div>
+                        Payments
+                    </a>
+                </li>
                 <li>
                     <a href="/logout">
                         <div class="icon-log-out"></div>
