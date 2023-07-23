@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuickConsult.Pages;
 
+[Authorize]
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
