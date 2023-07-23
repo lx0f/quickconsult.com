@@ -1,0 +1,17 @@
+﻿@page
+@using QuickConsult.Models;
+@model QuickConsult.Pages.Doctor.DashboardModel
+@{
+}
+<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+
+<div class="doctor-dashboard-div">
+    <h1 style="margin-left:50px;">You have an appointment now: <a href="">(insert link) </a></h1>
+</div>
+<h2 style="margin-top: 10px;">Upcoming Appointments (@Model.appointmentCount)</h2>
+@foreach(Appointment appointment in Model.Appointments)
+{
+    <h1>@appointment.Id</h1>
+}
+
+<h2 style="margin-top: 10px;">Pending Payments (#)</h2>

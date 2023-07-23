@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace QuickConsult.Models;
 
@@ -7,6 +8,11 @@ namespace QuickConsult.Models;
 public class User : IdentityUser<Guid>
 {
     public required string Nric { get; set; }
-    public required ICollection<Appointment> DoctorAppointments;
-    public required ICollection<Appointment> PatientAppointments;
+    public ICollection<Appointment> DoctorAppointments;
+    public ICollection<Appointment> PatientAppointments;
+
+    public static implicit operator User(ClaimsPrincipal v)
+    {
+        throw new NotImplementedException();
+    }
 }

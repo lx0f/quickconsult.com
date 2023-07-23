@@ -15,7 +15,11 @@
   /* units */
   --unit: 8px;
 }
-
+.doctor-dashboard-div { 
+    padding: 15px 15px 15px 15px;
+    border: solid 1px grey; 
+    background-color: white;
+}
 html {
   font-size: 20px;
   font-family: 'Inter';
