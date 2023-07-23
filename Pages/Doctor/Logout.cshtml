@@ -1,0 +1,8 @@
+@page
+@using Microsoft.AspNetCore.Identity;
+@using QuickConsult.Models;
+@inject SignInManager<User> _signInManager;
+@{
+    await _signInManager.SignOutAsync();
+    Response.Redirect("/index");
+}
