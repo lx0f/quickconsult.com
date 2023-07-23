@@ -9,9 +9,22 @@
     <h1 style="margin-left:50px;">You have an appointment now: <a href="">(insert link) </a></h1>
 </div>
 <h2 style="margin-top: 10px;">Upcoming Appointments (@Model.appointmentCount)</h2>
+<table>
+    <tr>
+        <td>Date</td>
+        <td>NRIC</td>
+        <td>Patient</td>
+        <td>Appoinment Link</td>
+    </tr>
+
 @foreach(Appointment appointment in Model.Appointments)
 {
-    <h1>@appointment.Id</h1>
+    <tr>
+        <td>@appointment.DateTime</td>
+        <td>@appointment.Patient.Nric</td>
+        <td>patient name(pending update) </td>
+        <td><a href="#"></a>AppointmentLink</td>
+    </tr>
 }
-
+</table>
 <h2 style="margin-top: 10px;">Pending Payments (#)</h2>
