@@ -16,10 +16,10 @@ builder.Services.AddDbContext<QsContext>(options =>
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors();
 });
+
+builder.Services.AddDefaultIdentity<User>(options => options.Lockout.AllowedForNewUsers = false).AddEntityFrameworkStores<QsContext>();
 builder.Services.AddTransient<UserManager<User>>();
 builder.Services.AddTransient<SignInManager<User>>();
-builder.Services.AddIdentity<User, IdentityRole<Guid>>()
-    .AddEntityFrameworkStores<QsContext>();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(10);
@@ -40,6 +40,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
